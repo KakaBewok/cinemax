@@ -4,17 +4,22 @@ import 'package:cinemax/web_screen.dart';
 import 'package:cinemax/mobile_screen.dart';
 import 'package:provider/provider.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: const AuthScreen(),
-          title: Text(
-            'Cinemax App. Size of screen: ${MediaQuery.of(context).size.width}',
-            style: const TextStyle(color: Colors.white),
+          actions: const [ThemeModeToggle()],
+          title: const Text(
+            'Cinemax',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
           ),
         ),
         body: LayoutBuilder(
@@ -28,15 +33,15 @@ class MainScreen extends StatelessWidget {
   }
 }
 
-class AuthScreen extends StatefulWidget {
-  const AuthScreen({super.key});
+class ThemeModeToggle extends StatefulWidget {
+  const ThemeModeToggle({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _AuthScreenState createState() => _AuthScreenState();
+  _ThemeModeState createState() => _ThemeModeState();
 }
 
-class _AuthScreenState extends State<AuthScreen> {
+class _ThemeModeState extends State<ThemeModeToggle> {
   bool isDarkMode = false;
 
   @override

@@ -5,6 +5,6 @@ class WebScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text("This is web screen");
+    return const Text("This is web screen. Under maintenance!");
   }
 }
