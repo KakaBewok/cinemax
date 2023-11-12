@@ -1,4 +1,8 @@
+import 'package:cinemax/theme_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:cinemax/web_screen.dart';
+import 'package:cinemax/mobile_screen.dart';
+import 'package:provider/provider.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -7,6 +11,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          leading: const AuthScreen(),
           title: Text(
             'Cinemax App. Size of screen: ${MediaQuery.of(context).size.width}',
             style: const TextStyle(color: Colors.white),
@@ -23,20 +28,24 @@ class MainScreen extends StatelessWidget {
   }
 }
 
-class WebScreen extends StatelessWidget {
-  const WebScreen({Key? key}) : super(key: key);
+class AuthScreen extends StatefulWidget {
+  const AuthScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const Text("This is web screen");
-  }
+  // ignore: library_private_types_in_public_api
+  _AuthScreenState createState() => _AuthScreenState();
 }
 
-class MobileScreen extends StatelessWidget {
-  const MobileScreen({Key? key}) : super(key: key);
+class _AuthScreenState extends State<AuthScreen> {
+  bool isDarkMode = false;
 
   @override
   Widget build(BuildContext context) {
-    return const Text("This is mobile screen");
+    return Switch(
+      value: Provider.of<ThemeProvider>(context).isDarkMode,
+      onChanged: (value) {
+        Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+      },
+    );
   }
 }
