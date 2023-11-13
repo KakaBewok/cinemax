@@ -14,22 +14,14 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          actions: const [ThemeModeToggle()],
-          title: const Text(
-            'Cinemax',
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
-          ),
-        ),
-        body: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) {
-          if (constraints.maxWidth > 800) {
-            return const WebScreen();
-          } else {
-            return const MobileScreen();
-          }
-        }));
+    return Scaffold(body: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+      if (constraints.maxWidth > 600) {
+        return const WebScreen();
+      } else {
+        return const MobileScreen();
+      }
+    }));
   }
 }
 
