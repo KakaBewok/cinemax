@@ -58,7 +58,7 @@ class _AuthScreenState extends State<AuthScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
-            "Go to Mainpage",
+            "Go to mainpage",
             style: TextStyle(fontSize: 28),
           ),
           const SizedBox(height: 16.0),

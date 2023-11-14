@@ -4,14 +4,9 @@ import 'package:cinemax/web_screen.dart';
 import 'package:cinemax/mobile_screen.dart';
 import 'package:provider/provider.dart';
 
-class MainScreen extends StatefulWidget {
+class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
 
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: LayoutBuilder(
@@ -25,16 +20,8 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
-class ThemeModeToggle extends StatefulWidget {
+class ThemeModeToggle extends StatelessWidget {
   const ThemeModeToggle({super.key});
-
-  @override
-  // ignore: library_private_types_in_public_api
-  _ThemeModeState createState() => _ThemeModeState();
-}
-
-class _ThemeModeState extends State<ThemeModeToggle> {
-  bool isDarkMode = false;
 
   @override
   Widget build(BuildContext context) {
