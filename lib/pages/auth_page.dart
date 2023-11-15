@@ -53,74 +53,85 @@ class _AuthScreenState extends State<AuthScreen> {
 
   Widget _buildLoginTab() {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text(
-            "Go to mainpage",
-            style: TextStyle(fontSize: 28),
+        padding: const EdgeInsets.all(16.0),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Go to mainpage",
+                    style: TextStyle(fontSize: 28),
+                  ),
+                  const SizedBox(height: 16.0),
+                  TextField(
+                    controller: _loginUsernameController,
+                    decoration: const InputDecoration(labelText: 'Username'),
+                  ),
+                  const SizedBox(height: 16.0),
+                  TextField(
+                    controller: _loginPasswordController,
+                    obscureText: true,
+                    decoration: const InputDecoration(labelText: 'Password'),
+                  ),
+                  const SizedBox(height: 16.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      _handleLogin();
+                    },
+                    child: const Text('Login'),
+                  ),
+                ],
+              ),
+            ),
           ),
-          const SizedBox(height: 16.0),
-          TextField(
-            controller: _loginUsernameController,
-            decoration: const InputDecoration(labelText: 'Username'),
-          ),
-          const SizedBox(height: 16.0),
-          TextField(
-            controller: _loginPasswordController,
-            obscureText: true,
-            decoration: const InputDecoration(labelText: 'Password'),
-          ),
-          const SizedBox(height: 16.0),
-          ElevatedButton(
-            onPressed: () {
-              _handleLogin();
-            },
-            child: const Text('Login'),
-          ),
-        ],
-      ),
-    );
+        ));
   }
 
   Widget _buildSignupTab() {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text(
-            "Create an account",
-            style: TextStyle(fontSize: 28),
+        padding: const EdgeInsets.all(16.0),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Create an account",
+                    style: TextStyle(fontSize: 28),
+                  ),
+                  const SizedBox(height: 16.0),
+                  TextField(
+                    controller: _signupUsernameController,
+                    decoration: const InputDecoration(labelText: 'Username'),
+                  ),
+                  const SizedBox(height: 16.0),
+                  TextField(
+                    controller: _signupPasswordController,
+                    obscureText: true,
+                    decoration: const InputDecoration(labelText: 'Password'),
+                  ),
+                  const SizedBox(height: 16.0),
+                  TextField(
+                    controller: _signupConfirmPasswordController,
+                    obscureText: true,
+                    decoration:
+                        const InputDecoration(labelText: 'Confirm Password'),
+                  ),
+                  const SizedBox(height: 16.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      _handleSignup();
+                    },
+                    child: const Text('Sign Up'),
+                  ),
+                ],
+              ),
+            ),
           ),
-          const SizedBox(height: 16.0),
-          TextField(
-            controller: _signupUsernameController,
-            decoration: const InputDecoration(labelText: 'Username'),
-          ),
-          const SizedBox(height: 16.0),
-          TextField(
-            controller: _signupPasswordController,
-            obscureText: true,
-            decoration: const InputDecoration(labelText: 'Password'),
-          ),
-          const SizedBox(height: 16.0),
-          TextField(
-            controller: _signupConfirmPasswordController,
-            obscureText: true,
-            decoration: const InputDecoration(labelText: 'Confirm Password'),
-          ),
-          const SizedBox(height: 16.0),
-          ElevatedButton(
-            onPressed: () {
-              _handleSignup();
-            },
-            child: const Text('Sign Up'),
-          ),
-        ],
-      ),
-    );
+        ));
   }
 
   void _handleLogin() {
