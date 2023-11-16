@@ -2,7 +2,7 @@ import 'package:cinemax/web_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({Key? key});
+  HomePage({Key? key}) : super(key: key);
 
   final List<String> filmPosters = [
     'https://media-cdn.tripadvisor.com/media/photo-s/0d/7c/59/70/farmhouse-lembang.jpg',
@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
 class FilmPosterCard extends StatelessWidget {
   final String posterUrl;
 
-  const FilmPosterCard({Key? key, required this.posterUrl});
+  const FilmPosterCard({Key? key, required this.posterUrl}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

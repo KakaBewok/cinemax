@@ -56,34 +56,32 @@ class _AuthScreenState extends State<AuthScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Center(
           child: SingleChildScrollView(
-            child: Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Go to mainpage",
-                    style: TextStyle(fontSize: 28),
-                  ),
-                  const SizedBox(height: 16.0),
-                  TextField(
-                    controller: _loginUsernameController,
-                    decoration: const InputDecoration(labelText: 'Username'),
-                  ),
-                  const SizedBox(height: 16.0),
-                  TextField(
-                    controller: _loginPasswordController,
-                    obscureText: true,
-                    decoration: const InputDecoration(labelText: 'Password'),
-                  ),
-                  const SizedBox(height: 16.0),
-                  ElevatedButton(
-                    onPressed: () {
-                      _handleLogin();
-                    },
-                    child: const Text('Login'),
-                  ),
-                ],
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Go to mainpage",
+                  style: TextStyle(fontSize: 28),
+                ),
+                const SizedBox(height: 16.0),
+                TextField(
+                  controller: _loginUsernameController,
+                  decoration: const InputDecoration(labelText: 'Username'),
+                ),
+                const SizedBox(height: 16.0),
+                TextField(
+                  controller: _loginPasswordController,
+                  obscureText: true,
+                  decoration: const InputDecoration(labelText: 'Password'),
+                ),
+                const SizedBox(height: 16.0),
+                ElevatedButton(
+                  onPressed: () {
+                    _handleLogin();
+                  },
+                  child: const Text('Login'),
+                ),
+              ],
             ),
           ),
         ));
@@ -94,41 +92,39 @@ class _AuthScreenState extends State<AuthScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Center(
           child: SingleChildScrollView(
-            child: Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Create an account",
-                    style: TextStyle(fontSize: 28),
-                  ),
-                  const SizedBox(height: 16.0),
-                  TextField(
-                    controller: _signupUsernameController,
-                    decoration: const InputDecoration(labelText: 'Username'),
-                  ),
-                  const SizedBox(height: 16.0),
-                  TextField(
-                    controller: _signupPasswordController,
-                    obscureText: true,
-                    decoration: const InputDecoration(labelText: 'Password'),
-                  ),
-                  const SizedBox(height: 16.0),
-                  TextField(
-                    controller: _signupConfirmPasswordController,
-                    obscureText: true,
-                    decoration:
-                        const InputDecoration(labelText: 'Confirm Password'),
-                  ),
-                  const SizedBox(height: 16.0),
-                  ElevatedButton(
-                    onPressed: () {
-                      _handleSignup();
-                    },
-                    child: const Text('Sign Up'),
-                  ),
-                ],
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Create an account",
+                  style: TextStyle(fontSize: 28),
+                ),
+                const SizedBox(height: 16.0),
+                TextField(
+                  controller: _signupUsernameController,
+                  decoration: const InputDecoration(labelText: 'Username'),
+                ),
+                const SizedBox(height: 16.0),
+                TextField(
+                  controller: _signupPasswordController,
+                  obscureText: true,
+                  decoration: const InputDecoration(labelText: 'Password'),
+                ),
+                const SizedBox(height: 16.0),
+                TextField(
+                  controller: _signupConfirmPasswordController,
+                  obscureText: true,
+                  decoration:
+                      const InputDecoration(labelText: 'Confirm Password'),
+                ),
+                const SizedBox(height: 16.0),
+                ElevatedButton(
+                  onPressed: () {
+                    _handleSignup();
+                  },
+                  child: const Text('Sign Up'),
+                ),
+              ],
             ),
           ),
         ));
@@ -200,5 +196,15 @@ class _AuthScreenState extends State<AuthScreen> {
         );
       },
     );
+  }
+
+  @override
+  void dispose() {
+    _signupUsernameController.dispose();
+    _signupPasswordController.dispose();
+    _signupConfirmPasswordController.dispose();
+    _loginUsernameController.dispose();
+    _loginPasswordController.dispose();
+    super.dispose();
   }
 }
